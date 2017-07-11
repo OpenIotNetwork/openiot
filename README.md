@@ -12,11 +12,13 @@ CircleCI
 
 Join the chat at https://gitter.im/OpenIoTAcademy
 
+
+
 Intro
+
 IoT Cloud infrastructure represents the Software Layer of the OpenIoT community, along with the :
 Infrastructure Layer - the Open LoRaWan network deployed currently in the area of Vienna and part of the global Open initiative TheThingsNetwork
 Community Layer - a group of passionate people in love with innovation and personal IoT practicants - eager to bring the power of IoT in their life.
-
 The purpose of the Software Layer is to fill-in the technical gaps for any Maker by providing him with the necessary tools, examples and infrastructure. A Maker should just MAKE with less friction as possible. 
 
 The most outstanding features are:
@@ -27,6 +29,7 @@ it is highly extensible as at the core it is based on NodeRed Open-Source IoT to
 very flexible as the whole workflow is based on scripting (NodeRed > NodeJS < JS )
 very scalable as the whole deployment is based on Docker stack 
 very robust as it comes with a series of JAVA micro-services dealing with Persistence through connection pools(RabbitMQ, MongoDB, MySql, Redis) 
+
 
 
 Technical stack: <IoT-REST-oriented architecture>
@@ -45,10 +48,10 @@ Spring Boot
 Spring Framework (Spring security; Spring MVC;Spring MVC RESTful; JDBC; JPA; JMS)
 Gradle
 
-Prerequirements
-Docker
+Prerequirements(Docker)
 
 Running
+
 Go to the root directory and execute
 
 (For Linux)
