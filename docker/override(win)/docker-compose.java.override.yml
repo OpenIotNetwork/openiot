@@ -1,0 +1,12 @@
+version: '2'
+services:
+  java:
+    image: peteanusergiu/java
+    environment:
+      SPRING_PROFILES_ACTIVE: rest,test,mongodb,amqp,amqp_sub,cache,azure,iot
+      REST_PORT: 8082
+      FRAME_PER_OBJECT: 2
+      AMQP_HOST: rabbitmq
+      AMQP_VHOST: asDocument-rabbitmq
+      AMQP_USERNAME: atusername
+      AMQP_PASSWORD: atpassword

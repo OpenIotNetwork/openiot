@@ -1,0 +1,21 @@
+version: '2'
+services:
+  nodered:
+    #image: nodered/node-red-docker
+    build: ./nodered
+    ports:
+      - "1880:1880"
+    user: ${SHARED_USER_PID}
+    volumes_from:
+      - nodereddata
+    environment:
+      FLOWS: myFlows.json
+      #NODE_OPTIONS: "--max_old_space_size=128"
+  nodereddata:
+    image: ubuntu
+    #build: ./persistence
+    user: ${SHARED_USER_PID}
+#    user: "1000"
+    volumes:
+      - "/persistence/nodered:/data"
+    command: echo Persistence for NodeRed

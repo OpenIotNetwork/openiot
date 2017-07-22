@@ -1,0 +1,49 @@
+version: '2'
+services:
+  java:
+    image: peteanusergiu/java
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+      - redis
+      - rabbitmq
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - "/var/redis-data:/data"  
+  nodered:
+    build: ./docker/nodered
+    #ports:       #see docker-compose.override.yml on each deployed machine for CRITICAL DATA (not suitable for GIT)
+    volumes:
+      - "/var/nodereddata:/data"  
+    #environment:       #see docker-compose.override.yml on each deployed machine for CRITICAL DATA (not suitable for GIT)
+      #NODE_OPTIONS: "--max_old_space_size=128"
+  nodejs:
+    build: ./docker/nodejs
+    #ports:       #see docker-compose.override.yml on each deployed machine for CRITICAL DATA (not suitable for GIT)
+    volumes:
+      - "/var/nodejsdata:/data"  
+    #environment:       #see docker-compose.override.yml on each deployed machine for CRITICAL DATA (not suitable for GIT)
+      #NODE_OPTIONS: "--max_old_space_size=128"
+  mongodb:
+    image: mongo
+      #ports:       #see docker-compose.override.yml on each deployed machine for CRITICAL DATA (not suitable for GIT)
+    volumes:
+      - "/var/mongodb-data:/data/db"
+    restart: always
+  rabbitmq:
+    image: rabbitmq:3-management # management plugin installed and enabled by default
+    environment:
+       - RABBITMQ_DEFAULT_VHOST=asDocument-rabbitmq
+       - RABBITMQ_DEFAULT_USER=atusername
+       - RABBITMQ_DEFAULT_PASS=atpassword
+    hostname: asDocument-rabbitmq
+    ports:
+      - 5672:5672 # port for the daemon API, can be exposed to public
+      - 15672:15672  # port for the Management interface
+    restart: always
+    volumes:
+      - "/var/rabbitmq-data:/var/lib/rabbitmq"

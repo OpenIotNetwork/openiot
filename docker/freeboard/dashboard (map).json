@@ -1,0 +1,40 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "google_map",
+					"settings": {
+						"lat": "datasources[\"AMQP coordinates\"][\"latitude\"]",
+						"lon": "datasources[\"AMQP coordinates\"][\"longitude\"]"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "AMQP coordinates",
+			"type": "JSON",
+			"settings": {
+				"url": "http://s4t.westeurope.cloudapp.azure.com:8082/mqtt/subscribeTo/testRestQueue",
+				"use_thingproxy": true,
+				"refresh": 60,
+				"method": "GET",
+				"body": ""
+			}
+		}
+	],
+	"columns": 3
+}

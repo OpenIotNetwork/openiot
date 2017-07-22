@@ -1,0 +1,2 @@
+Reference point at the moment for docker-compose projects such as openiot, security4things, digital-reputation is DockerDistributedPlatform(DDP). 
+Check the versions and Migrate as often as possible. 

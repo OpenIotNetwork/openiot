@@ -1,0 +1,81 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "test",
+						"size": "regular",
+						"value": "datasources[\"testSubscribe\"][\"latitude\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "testPost",
+						"size": "regular",
+						"value": "datasources[\"testPost\"][\"result\"]",
+						"animate": true
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "testSubscribe",
+						"size": "regular",
+						"value": "datasources[\"testPrototype\"][\"message\"]",
+						"sparkline": true,
+						"animate": true
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "testNoderedGET",
+			"type": "JSON",
+			"settings": {
+				"url": "http://s4t.westeurope.cloudapp.azure.com:1880/test",
+				"use_thingproxy": false,
+				"refresh": 5,
+				"method": "GET"
+			}
+		},
+		{
+			"name": "testNodered POST",
+			"type": "JSON",
+			"settings": {
+				"url": "http://s4t.westeurope.cloudapp.azure.com:1880/testPost",
+				"use_thingproxy": true,
+				"refresh": 5,
+				"method": "POST",
+				"body": "{\"queue\": \"testRestQueue\"}"
+			}
+		},
+		{
+			"name": "testPrototype Subscribe GET",
+			"type": "JSON",
+			"settings": {
+				"url": "http://s4t.westeurope.cloudapp.azure.com:8082/mqtt/subscribe/testRestQueue",
+				"use_thingproxy": true,
+				"refresh": 5,
+				"method": "GET"
+			}
+		}
+	],
+	"columns": 3
+}

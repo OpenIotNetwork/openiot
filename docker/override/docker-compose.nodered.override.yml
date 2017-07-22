@@ -1,0 +1,14 @@
+version: '2'
+services:
+  nodered:
+   # build: ./nodered
+    ports:
+      - "1880:1880"
+    environment:
+      FLOWS: myFlows.json
+      #NODE_OPTIONS: "--max_old_space_size=128"
+  nodereddata:
+    image: ubuntu
+    volumes:
+      - "/persistence/nodered:/data"
+    command: echo Persistence for NodeRed

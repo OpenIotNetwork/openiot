@@ -1,0 +1,17 @@
+version: '2'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management # management plugin installed and enabled by default
+    environment:
+       - RABBITMQ_DEFAULT_VHOST=asDocument-rabbitmq
+       - RABBITMQ_DEFAULT_USER=atusername
+       - RABBITMQ_DEFAULT_PASS=atpassword
+    hostname: asDocument-rabbitmq
+    ports:
+      - 5672:5672 # port for the daemon API, can be exposed to public
+      - 15672:15672  # port for the Management interface
+  rabbitmqdata:
+      image: ubuntu
+      volumes:
+        - "/var/lib/rabbitmq"
+      command: echo Persistence for RabbitMQ

@@ -1,0 +1,42 @@
+version: '2'
+services:
+  java:
+    extends:
+      file: ./docker/override(win)/docker-compose.java.override.yml
+      service: java
+  rabbitmq:
+    extends:
+      file: ./docker/override(win)/docker-compose.amqp.override.yml
+      service: rabbitmq
+  mongodb:
+    extends:
+      file: ./docker/override(win)/docker-compose.db.override.yml
+      service: mongodb
+  redis:
+    extends:
+      file: ./docker/override(win)/docker-compose.cache.override.yml
+      service: redis
+  nodered:
+    extends:
+      file: ./docker/override(win)/docker-compose.nodered.override.yml
+      service: nodered
+  freeboard:
+    extends:
+      file: ./docker/override(win)/docker-compose.freeboard.override.yml
+      service: freeboard
+  mongodata:
+    extends:
+      file: ./docker/override(win)/docker-compose.db.override.yml
+      service: mongodata
+  nodereddata:
+    extends:
+      file: ./docker/override(win)/docker-compose.nodered.override.yml
+      service: nodereddata
+  redisdata:
+    extends:
+      file: ./docker/override(win)/docker-compose.cache.override.yml
+      service: redisdata
+  rabbitmqdata:
+     extends:
+      file: ./docker/override(win)/docker-compose.amqp.override.yml
+      service: rabbitmqdata

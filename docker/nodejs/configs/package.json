@@ -1,0 +1,35 @@
+{
+    "name": "digital-reputation-ui",
+    "version": "1.0.0",
+    "description": "Digital Reputation UI",
+    "contributors": [
+        {
+            "name": "Hacker"
+        },
+        {
+            "name": "Young Hacker"
+        }
+    ],
+    "main": "index.js",
+
+    "scripts": {
+        "start": "grunt",
+        "presetup": "echo \"------------------BOWER SPECIFIC SETUP started --------------------- \" ",
+        "setup": "npm install && bower --allow-root cache clean && bower --allow-root install",
+        "postsetup": "echo \"------------------BOWER SPECIFIC SETUP successfully performed --------------------- \" ",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@bitbucket.org/digitalreputation/digital-reputation-ui.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://bitbucket.org/digitalreputation/digital-reputation-ui#readme",
+    "dependencies": {
+        "grunt": "1.0.1",
+        "grunt-contrib-connect": "^1.0.2",
+        "bower": "1.8.0"
+    }
+}

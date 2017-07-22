@@ -1,0 +1,35 @@
+version: '2'
+services:
+  java:
+    image: peteanusergiu/java
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+      - redis
+      - rabbitmq
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes_from:
+      - redisdata  
+  nodered:
+    image: peteanusergiu/nodered
+    volumes_from:
+      - nodereddata       
+  mongodb:
+    image: mongo
+    volumes_from:
+      - mongodata
+    restart: always
+  rabbitmq:
+    image: rabbitmq:3-management # management plugin installed and enabled by default    
+    restart: always
+    volumes_from:
+      - rabbitmqdata
+  freeboard:
+    image: peteanusergiu/freeboard
+  mongodata:
+  nodereddata:
+  rabbitmqdata:

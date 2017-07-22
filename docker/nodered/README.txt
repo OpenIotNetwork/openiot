@@ -1,0 +1,1 @@
+See personal assistant SLACK channel TTN for credentials and ports 

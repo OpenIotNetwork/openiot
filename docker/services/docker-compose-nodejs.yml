@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nodejs:
+    #image: nodered/node-red-docker
+    build: ./nodejs
+    ports:
+      - "1881:1881"
+    user: ${SHARED_USER_PID}
+    volumes_from:
+      - nodejsdata
+  nodejsdata:
+    image: ubuntu
+    #build: ./persistence
+    user: ${SHARED_USER_PID}
+#    user: "1000"
+    volumes:
+      - "/persistence/nodejs:/data"
+    command: echo Persistence for NodeJS

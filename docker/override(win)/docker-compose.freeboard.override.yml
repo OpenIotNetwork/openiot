@@ -1,0 +1,11 @@
+version: '2'
+services:
+  freeboard:
+    image: peteanusergiu/freeboard
+    ports:
+      - "82:82"
+  #  freeboarddata:
+  #    image: ubuntu
+  #    volumes:
+  #      - "/persistence/freeboard:/data"
+  #    command: echo Persistence for Freeboard
